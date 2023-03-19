@@ -9,3 +9,11 @@ export interface Ibook {
 export interface ITest {
   data: Array<Ibook>;
 }
+
+export type TPropsInput = {
+  udpateSearch: (arg0: string) => void;
+};
+
+export type TStateInput = {
+  search: string;
+};
