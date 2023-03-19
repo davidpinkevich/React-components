@@ -4,7 +4,7 @@ import dataItems from '../../data/items-data';
 import Item from '../../components/Home/Item/Item';
 
 describe('Item Book', () => {
-  it('Test', () => {
+  it('Item component', () => {
     const book = dataItems[0];
     render(<Item {...book} />);
 
