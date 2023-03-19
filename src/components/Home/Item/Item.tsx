@@ -14,7 +14,7 @@ class Item extends Component<Ibook> {
           <img src={image} />
         </div>
         <h2>{title}</h2>
-        <p>Author: {author}</p>
+        <p>{author}</p>
         <p>Genre: {genre}</p>
         <p>Year: {year}</p>
       </li>
