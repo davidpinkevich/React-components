@@ -3,7 +3,7 @@ import styles from './NotFound.module.scss';
 
 export class NotFound extends Component {
   render() {
-    return <div className={styles.notFound}>Not Found</div>;
+    return <main className={styles.notFound}>Not Found</main>;
   }
 }
 
