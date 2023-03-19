@@ -6,7 +6,7 @@ describe('Not Found', () => {
   it('Not Found component', () => {
     render(<NotFound />);
 
-    const listItems = screen.getByRole('main');
-    expect(listItems).toHaveTextContent('Not Found');
+    const notFound = screen.getByRole('main');
+    expect(notFound).toHaveTextContent('Not Found');
   });
 });

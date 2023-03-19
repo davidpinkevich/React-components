@@ -6,7 +6,7 @@ describe('About', () => {
   it('About component', () => {
     render(<About />);
 
-    const listItems = screen.getByRole('main');
-    expect(listItems).toHaveTextContent('About');
+    const about = screen.getByRole('main');
+    expect(about).toHaveTextContent('About');
   });
 });
