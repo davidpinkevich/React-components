@@ -1,0 +1,23 @@
+.searchInput {
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 3px 3px black;
+  margin-bottom: 10px;
+
+  & input {
+    box-shadow: inset 0px 0px 3px 3px black;
+    border-radius: 8px;
+    font-size: 24px;
+    padding: 7px;
+    color: #74b3ab;
+    background-color: #838b8a;
+    text-shadow: 2px 2px 2px black;
+    transition: all 0.2s;
+    &:focus {
+      box-shadow: inset 0px 0px 3px 3px white;
+      background-color: #5b6160;
+      color: white;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
 
 * {
-  background-color: rgb(92, 84, 84);
+  background-color: rgb(148, 164, 153);
   font-family: 'Oswald', sans-serif;
   &::-webkit-scrollbar {
     border-radius: 10px;
@@ -19,5 +19,4 @@
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
-  padding-bottom: 20px;
 }
