@@ -10,7 +10,7 @@ describe('Header', () => {
         <Header />
       </BrowserRouter>
     );
-    const header = screen.getByText('Home');
+    const header = screen.getByText('Current page:');
     expect(header).toBeInTheDocument();
   });
 });

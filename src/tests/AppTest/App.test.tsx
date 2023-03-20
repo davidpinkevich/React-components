@@ -4,7 +4,7 @@ import App from '../../components/App/App';
 describe('App component', () => {
   it('renders home page by default', () => {
     render(<App />);
-    const homeElement = screen.getByText('Home');
+    const homeElement = screen.getByText('Current page:');
     expect(homeElement).toBeInTheDocument();
   });
 });
