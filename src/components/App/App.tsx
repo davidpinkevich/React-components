@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Home from '../Home/Home';
 import About from '../About/About';
 import NotFound from '../NotFound/NotFound';
+import PageForms from '../Forms/PageForms';
 import './App.scss';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
             <Route path="/" element={<Header />}>
               <Route index element={<Home />} />
               <Route path="about" element={<About />} />
+              <Route path="forms" element={<PageForms />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

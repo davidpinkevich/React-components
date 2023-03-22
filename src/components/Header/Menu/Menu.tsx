@@ -19,11 +19,12 @@ export class Menu extends Component<Record<string, never>, CounterState> {
     }));
   };
   render() {
+    const path = this.state.location;
     return (
       <div className={styles.headerNavigation}>
         <div className={styles.currentPage}>
           <p>Current page:</p>
-          {this.state.location === '/' ? 'Home' : 'About Us'}
+          {path === '/' ? 'Home' : path === '/about' ? 'About Us' : 'Forms'}
         </div>
         <nav className={styles.navigation}>
           <NavLink
@@ -32,6 +33,13 @@ export class Menu extends Component<Record<string, never>, CounterState> {
             to="."
           >
             Home
+          </NavLink>
+          <NavLink
+            onClick={this.changeLocal}
+            className={({ isActive }) => (isActive ? styles.activeLink : styles.notActiveLink)}
+            to="forms"
+          >
+            Forms
           </NavLink>
           <NavLink
             onClick={this.changeLocal}
