@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TPageForms, TItemForm } from '../../types/types';
-import Forms from './Forms';
-import ItemsForm from './ItemsForm';
+import Forms from './Forms/Forms';
+import ItemsForm from './ItemsForm/ItemsForm';
 
 class PageForms extends Component<Record<string, void>, TPageForms> {
   constructor(props: Record<string, never>) {

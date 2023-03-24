@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { TInputsFile } from '../../types/types';
+import { TInputsFile } from '../../../types/types';
 
 export class FileInput extends Component<TInputsFile> {
   constructor(props: TInputsFile) {

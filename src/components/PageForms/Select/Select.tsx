@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { TInputsSelect } from '../../types/types';
+import { TInputsSelect } from '../../../types/types';
 
 class Select extends Component<TInputsSelect> {
   constructor(props: TInputsSelect) {

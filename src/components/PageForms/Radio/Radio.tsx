@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { TInputsRadio } from '../../types/types';
+import { TInputsRadio } from '../../../types/types';
 
 export class Radio extends Component<TInputsRadio> {
   constructor(props: TInputsRadio) {

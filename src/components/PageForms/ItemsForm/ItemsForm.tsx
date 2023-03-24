@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { TPageForms } from '../../types/types';
+import { TPageForms } from '../../../types/types';
 
 export class ItemsForm extends Component<TPageForms> {
   constructor(props: TPageForms) {

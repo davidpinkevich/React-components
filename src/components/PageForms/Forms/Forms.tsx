@@ -1,9 +1,9 @@
 import React, { Component, createRef } from 'react';
-import { TPropsForm, TStateForm } from '../../types/types';
-import Radio from './Radio';
-import Select from './Select';
-import Checkbox from './Checkbox';
-import FileInput from './FileInput';
+import { TPropsForm, TStateForm } from '../../../types/types';
+import Radio from '../Radio/Radio';
+import Select from '../Select/Select';
+import Checkbox from '../Checkbox/Checkbox';
+import FileInput from '../FileInput/FileInput';
 
 class Forms extends Component<TPropsForm, TStateForm> {
   inputName = createRef<HTMLInputElement>();

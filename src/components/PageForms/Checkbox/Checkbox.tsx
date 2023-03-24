@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { TInputsCheckbox } from '../../types/types';
+import { TInputsCheckbox } from '../../../types/types';
 
 export class Checkbox extends Component<TInputsCheckbox> {
   constructor(props: TInputsCheckbox) {

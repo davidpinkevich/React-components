@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import Home from '../Home/Home';
 import About from '../About/About';
 import NotFound from '../NotFound/NotFound';
-import PageForms from '../Forms/PageForms';
+import PageForms from '../PageForms/PageForms';
 import './App.scss';
 
 class App extends Component {
