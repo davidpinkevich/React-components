@@ -6,7 +6,7 @@ export class Radio extends Component<TInputsRadio> {
     super(props);
   }
   render() {
-    const arrayRadio = ['one', 'two', 'three'];
+    const arrayRadio = ['Mercedes', 'Toyota', 'Nissan'];
     return (
       <>
         {arrayRadio.map((elem, index) => {
