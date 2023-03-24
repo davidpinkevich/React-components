@@ -28,6 +28,9 @@ class Forms extends Component<TPropsForm, TStateForm> {
             radio: this.inputsRadio.map((elem) => elem.current?.checked),
             checkbox: this.inputsCheckbox.map((elem) => elem.current?.checked),
             file: this.inputFile.current?.files?.length ? this.inputFile.current.files[0] : '',
+            fileName: this.inputFile.current?.files?.length
+              ? this.inputFile.current?.files[0].name
+              : '',
           })
         }
       >

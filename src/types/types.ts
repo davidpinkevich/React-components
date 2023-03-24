@@ -33,6 +33,7 @@ export type TItemForm = {
   radio: Array<boolean | undefined>;
   checkbox: Array<boolean | undefined>;
   file: string | File;
+  fileName: string;
 };
 
 export type TPageForms = {
