@@ -16,6 +16,9 @@ export type TPropsInput = {
 
 export type TPropsForm = {
   onSubmit: (event: React.FormEvent<HTMLFormElement>, arg0: TItemForm) => void;
+  changeName: (value: boolean) => void;
+  fileName: boolean;
+  valid: TValidateObject;
 };
 
 export type TStateInput = {
@@ -24,6 +27,7 @@ export type TStateInput = {
 
 export type TStateForm = {
   value: string;
+  class: boolean;
 };
 
 export type TItemForm = {
@@ -36,12 +40,22 @@ export type TItemForm = {
   fileName: string;
 };
 
+type TValidateObject = {
+  checkName: boolean;
+  checkDate: boolean;
+  checkRadio: boolean;
+  checkCheckbox: boolean;
+  checkFileName: boolean;
+};
 export type TPageForms = {
   value: Array<TItemForm>;
+  valid: TValidateObject;
+  fileName: boolean;
 };
 
 export type TInputsRadio = {
   values: Array<React.RefObject<HTMLInputElement>>;
+  valid: boolean;
 };
 
 export type TInputsSelect = {
@@ -50,8 +64,12 @@ export type TInputsSelect = {
 
 export type TInputsCheckbox = {
   values: Array<React.RefObject<HTMLInputElement>>;
+  valid: boolean;
 };
 
 export type TInputsFile = {
   values: React.RefObject<HTMLInputElement>;
+  changeNames: (value: boolean) => void;
+  fileName: boolean;
+  valid: boolean;
 };
