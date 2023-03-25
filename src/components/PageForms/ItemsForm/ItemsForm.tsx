@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { TPageForms } from '../../../types/types';
+import styles from './ItemsForm.module.scss';
 
 export class ItemsForm extends Component<TPageForms> {
   constructor(props: TPageForms) {
@@ -7,16 +8,15 @@ export class ItemsForm extends Component<TPageForms> {
   }
   render() {
     const arrayCheckbox = ['Motorcycling', 'Swimming', 'Hunting', 'Alcohol'];
-    const arrayRadio = ['Mercedes', 'Toyota', 'Nissan'];
+    const arrayRadio = ['Mercedes', 'Toyota', 'Lada'];
 
     return (
-      <div>
+      <div className={styles.itemsBody + '__container'}>
         {this.props.value.map((item, index) => {
           const path = this.props.value[0].file ? true : false;
           const boxes = arrayCheckbox.filter((box, index) => {
             if (item.checkbox[index] === true) return box;
           });
-          console.log('boxes', boxes);
           return (
             <div key={index}>
               <div>Master: {item.name}</div>
