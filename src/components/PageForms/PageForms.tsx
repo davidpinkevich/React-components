@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TPageForms, TItemForm } from '../../types/types';
 import Forms from './Forms/Forms';
 import ItemsForm from './ItemsForm/ItemsForm';
+import styles from './PageForms.module.scss';
 
 class PageForms extends Component<Record<string, void>, TPageForms> {
   constructor(props: Record<string, never>) {
@@ -16,6 +17,7 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
         checkFileName: false,
       },
       fileName: false,
+      popup: false,
     };
   }
 
@@ -53,6 +55,8 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
       this.setState({ value: args });
       this.setState({ fileName: false });
       event.currentTarget.reset();
+      this.setState({ popup: true });
+      setTimeout(() => this.setState({ popup: false }), 3000);
     }
   };
 
@@ -63,12 +67,14 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
   render() {
     return (
       <>
+        {this.state.popup && <p className={styles.cardSuccessfully}>Card created successfully!</p>}
         <Forms
           changeName={this.changeName}
           onSubmit={this.changeSub}
           valid={this.state.valid}
           fileName={this.state.fileName}
         />
+        {this.state.value.length ? <p className={styles.list}>List of cards:</p> : ''}
         <ItemsForm {...this.state} />
       </>
     );
