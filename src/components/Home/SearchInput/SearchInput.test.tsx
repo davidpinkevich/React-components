@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import SearchInput from '../../components/Home/SearchInput/SearchInput';
+import SearchInput from './SearchInput';
 
 describe('SearchInput component', () => {
   it('renders input element', () => {

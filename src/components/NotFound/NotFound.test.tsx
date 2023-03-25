@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import NotFound from '../../components/NotFound/NotFound';
+import NotFound from './NotFound';
 
 describe('Not Found', () => {
   it('Not Found component', () => {

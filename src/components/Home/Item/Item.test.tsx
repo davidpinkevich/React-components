@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import dataItems from '../../data/items-data';
-import Item from '../../components/Home/Item/Item';
+import dataItems from '../../../data/items-data';
+import Item from './Item';
 
 describe('Item Book', () => {
   it('Item component', () => {

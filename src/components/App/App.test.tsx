@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import App from '../../components/App/App';
+import App from './App';
 
 describe('App component', () => {
   it('renders home page by default', () => {
