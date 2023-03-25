@@ -1,0 +1,31 @@
+.radioWrapper {
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 3px 3px black;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.radioBody {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 28px;
+  margin-bottom: 10px;
+
+  & p {
+    color: #2fd1bb;
+    text-shadow: 2px 2px 2px black;
+  }
+  & label {
+    cursor: pointer;
+    text-shadow: 2px 2px 2px black;
+  }
+}
+
+.inputError {
+  color: rgb(225, 9, 9);
+  text-align: center;
+  font-size: 22px;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 5px;
+}
