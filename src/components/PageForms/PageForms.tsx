@@ -8,6 +8,14 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
     super(props);
     this.state = {
       value: [],
+      valid: {
+        checkName: false,
+        checkDate: false,
+        checkRadio: false,
+        checkCheckbox: false,
+        checkFileName: false,
+      },
+      fileName: false,
     };
   }
 
@@ -17,7 +25,8 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
     const regexpDate = /\d{4}\-\d{2}\-\d{2}/;
     const checkYear = Number(objForValidate.date.match(/\d{4}/));
     const checkFilename = ['.png', '.jpg', '.jpeg'];
-    return {
+
+    const validObj = {
       checkName: regexpName.test(objForValidate.name) ? true : false,
       checkDate:
         regexpDate.test(objForValidate.date) && checkYear >= 1930 && checkYear <= 2005
@@ -31,6 +40,8 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
         ? true
         : false,
     };
+    this.setState({ valid: { ...validObj } });
+    return validObj;
   };
 
   changeSub = (event: React.FormEvent<HTMLFormElement>, obg: TItemForm) => {
@@ -40,15 +51,25 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
     if (result) {
       const args = [...this.state.value, obg];
       this.setState({ value: args });
+      this.setState({ fileName: false });
       event.currentTarget.reset();
     }
+  };
+
+  changeName = (value: boolean) => {
+    this.setState({ fileName: value });
   };
 
   render() {
     return (
       <>
-        <Forms onSubmit={this.changeSub} />
-        <ItemsForm value={this.state.value} />
+        <Forms
+          changeName={this.changeName}
+          onSubmit={this.changeSub}
+          valid={this.state.valid}
+          fileName={this.state.fileName}
+        />
+        <ItemsForm {...this.state} />
       </>
     );
   }
