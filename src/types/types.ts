@@ -51,6 +51,7 @@ export type TPageForms = {
   value: Array<TItemForm>;
   valid: TValidateObject;
   fileName: boolean;
+  popup: boolean;
 };
 
 export type TInputsRadio = {
