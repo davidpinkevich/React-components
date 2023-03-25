@@ -24,7 +24,5 @@ describe('Forms component', () => {
         level: 1,
       })
     ).toHaveTextContent('Who are you traveler?');
-    // const fileElement = screen.getByText('Who are you traveler?');
-    // expect(fileElement).toBeInTheDocument();
   });
 });
