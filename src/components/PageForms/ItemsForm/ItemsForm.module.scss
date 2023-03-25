@@ -1,3 +1,59 @@
 .itemsBody {
-  color: red;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  & span {
+    display: inline-block;
+  }
+}
+
+.itemCard {
+  font-size: 22px;
+  text-align: left;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  width: 380px;
+  padding: 15px;
+  box-shadow: inset 0px 0px 3px 3px black;
+  border-radius: 8px;
+  & span {
+    color: white;
+  }
+}
+
+.imgWrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hobbies {
+  margin-bottom: 10px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: white;
+}
+
+.listTitle {
+  text-align: center;
+  color: white;
+  font-size: 38px;
+  margin-bottom: 10px;
 }
