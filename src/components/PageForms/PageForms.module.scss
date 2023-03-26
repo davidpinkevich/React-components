@@ -1,0 +1,23 @@
+.cardSuccessfully {
+  position: fixed;
+  display: block;
+  text-align: center;
+  background-color: #494e4e;
+  box-shadow: inset 0px 0px 3px 3px black;
+  border-radius: 8px;
+  padding: 40px;
+  width: 800px;
+  color: white;
+  z-index: 5;
+  top: 25%;
+  left: calc(50% - 400px);
+  font-size: 52px;
+}
+
+.list {
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 1px black;
+}
