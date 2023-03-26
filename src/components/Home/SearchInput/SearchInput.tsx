@@ -1,38 +1,32 @@
-import { Component } from 'react';
-import { TPropsInput, TStateInput } from '../../../types/types';
+import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './SearchInput.module.scss';
 
-class SearchInput extends Component<TPropsInput, TStateInput> {
-  constructor(props: TPropsInput) {
-    super(props);
-    this.state = {
-      search: '',
+const SearchInput = () => {
+  const [search, setSearch] = useState<string>('');
+  const itemRef = useRef(search);
+
+  useEffect(() => {
+    setSearch(localStorage.getItem('search') || '');
+    return () => {
+      localStorage.setItem('search', itemRef.current);
     };
-  }
+  }, []);
 
-  componentDidMount() {
-    const ls = localStorage.getItem('search');
-    ls ? this.setState({ search: ls }) : localStorage.setItem('search', '');
-  }
+  useEffect(() => {
+    itemRef.current = search;
+  }, [search]);
 
-  componentWillUnmount() {
-    const search = this.state.search;
-    localStorage.setItem('search', search);
-  }
-
-  onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const search = e.target.value;
-    this.setState({ search });
-    this.props.udpateSearch(search);
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const searchInput = e.target.value;
+    setSearch(searchInput);
   };
 
-  render() {
-    return (
-      <div className={styles.searchInput}>
-        <input type="text" value={this.state.search} onChange={this.onSearch} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={styles.searchInput}>
+      <input type="text" value={search} onChange={onSearch} />
+    </div>
+  );
+};
 
 export default SearchInput;
