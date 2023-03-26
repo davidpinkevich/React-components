@@ -12,6 +12,12 @@
   font-size: 28px;
   margin-bottom: 10px;
 
+  & input {
+    transform: scale(1.2);
+    opacity: 0.9;
+    margin-right: 3px;
+  }
+
   & p {
     color: #2fd1bb;
     text-shadow: 2px 2px 2px black;

@@ -10,11 +10,11 @@ class PageForms extends Component<Record<string, void>, TPageForms> {
     this.state = {
       value: [],
       valid: {
-        checkName: false,
-        checkDate: false,
-        checkRadio: false,
-        checkCheckbox: false,
-        checkFileName: false,
+        checkName: true,
+        checkDate: true,
+        checkRadio: true,
+        checkCheckbox: true,
+        checkFileName: true,
       },
       fileName: false,
       popup: false,
