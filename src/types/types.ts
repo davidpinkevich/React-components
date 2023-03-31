@@ -1,3 +1,5 @@
+import { FieldErrors, UseFormRegister } from 'react-hook-form';
+
 export interface Ibook {
   title: string;
   author: string;
@@ -15,10 +17,10 @@ export type TPropsInput = {
 };
 
 export type TPropsForm = {
-  onSubmit: (event: React.FormEvent<HTMLFormElement>, arg0: TItemForm) => void;
-  changeName: (value: boolean) => void;
+  changeSub: (arg0: TItemForm) => void;
+  changeName: (arg0: boolean) => void;
+  changePopup: (arg0: boolean) => void;
   fileName: boolean;
-  valid: TValidateObject;
 };
 
 export type TStateInput = {
@@ -34,43 +36,33 @@ export type TItemForm = {
   name: string;
   date: string;
   select: string;
-  radio: Array<boolean | undefined>;
-  checkbox: Array<boolean | undefined>;
-  file: string | File;
-  fileName: string;
+  radio: string;
+  checkbox: Array<string>;
+  fileList?: FileList;
+  file?: File;
 };
 
-type TValidateObject = {
-  checkName: boolean;
-  checkDate: boolean;
-  checkRadio: boolean;
-  checkCheckbox: boolean;
-  checkFileName: boolean;
-};
 export type TPageForms = {
   value: Array<TItemForm>;
-  valid: TValidateObject;
-  fileName: boolean;
-  popup: boolean;
 };
 
 export type TInputsRadio = {
-  values: Array<React.RefObject<HTMLInputElement>>;
-  valid: boolean;
+  register: UseFormRegister<TItemForm>;
+  errors: FieldErrors<TItemForm>;
 };
 
 export type TInputsSelect = {
-  values: React.RefObject<HTMLSelectElement>;
+  register: UseFormRegister<TItemForm>;
 };
 
 export type TInputsCheckbox = {
-  values: Array<React.RefObject<HTMLInputElement>>;
-  valid: boolean;
+  register: UseFormRegister<TItemForm>;
+  errors: FieldErrors<TItemForm>;
 };
 
 export type TInputsFile = {
-  values: React.RefObject<HTMLInputElement>;
-  changeNames: (value: boolean) => void;
+  register: UseFormRegister<TItemForm>;
+  errors: FieldErrors<TItemForm>;
+  changeName: (arg0: boolean) => void;
   fileName: boolean;
-  valid: boolean;
 };
