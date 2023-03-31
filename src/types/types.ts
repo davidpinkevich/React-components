@@ -39,7 +39,7 @@ export type TItemForm = {
   radio: string;
   checkbox: Array<string>;
   fileList?: FileList;
-  file?: File;
+  file: File | string;
 };
 
 export type TPageForms = {
