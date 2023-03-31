@@ -4,31 +4,34 @@ import ItemsForm from './ItemsForm';
 
 describe('ItemsForm component', () => {
   it('render items form', () => {
-    const state = {
-      value: [
-        {
-          checkbox: [true, true, false, false],
-          date: '1990-12-12',
-          fileName: '23.jpg',
-          name: 'Mister Trevoni',
-          radio: [true, false, false],
-          select: 'Russia',
-          file: '',
-        },
-      ],
-      valid: {
-        checkName: false,
-        checkDate: false,
-        checkRadio: false,
-        checkCheckbox: false,
-        checkFileName: false,
+    const values = [
+      {
+        name: 'Ivan Petrov',
+        date: '2000-12-12',
+        radio: 'Mercedes',
+        select: 'Belarus',
+        file: '',
+        checkbox: ['Swimming', 'Hunting'],
       },
-      fileName: false,
-      popup: false,
-    };
-    render(<ItemsForm {...state} />);
+    ];
+    render(<ItemsForm value={values} />);
 
-    const itemElement = screen.getByText('Mister Trevoni');
-    expect(itemElement).toBeInTheDocument();
+    const elements = [
+      'Ivan Petrov',
+      '2000-12-12',
+      'Mercedes',
+      'Belarus',
+      'Swimming',
+      'Hunting',
+      'Master:',
+      'Stepped on the ground:',
+      'Motherland:',
+      'Hobbies:',
+      'The model of car:',
+    ];
+    elements.forEach((elem) => {
+      const itemElement = screen.getByText(elem);
+      expect(itemElement).toBeInTheDocument();
+    });
   });
 });
