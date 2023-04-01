@@ -4,16 +4,16 @@ import styles from './Menu.module.scss';
 
 const Menu = () => {
   const [location, setLocation] = useState(window.location.pathname);
+
   const changeLocal = () => {
-    setLocation(window.location.pathname);
+    setTimeout(() => setLocation(window.location.pathname), 0);
   };
 
-  const path = location;
   return (
     <div className={styles.headerNavigation}>
       <div className={styles.currentPage}>
         <p>Current page:</p>
-        {path === '/' ? 'Home' : path === '/about' ? 'About Us' : 'Forms'}
+        {location === '/' ? 'Home' : location === '/about' ? 'About Us' : 'Forms'}
       </div>
       <nav className={styles.navigation}>
         <NavLink
