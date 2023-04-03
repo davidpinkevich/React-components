@@ -1,16 +1,20 @@
 import { FieldErrors, UseFormRegister } from 'react-hook-form';
 
-export interface Ibook {
-  title: string;
-  author: string;
-  genre: string;
-  year: number;
-  image?: string;
-}
+export type TItem = {
+  id: number;
+  name: string;
+  description: string;
+  series: { items: Array<{ name: string }> };
+  comics: { items: Array<{ name: string }> };
+  thumbnail: { path: string; extension: string };
+  changePopup: () => void;
+};
 
-export interface ITest {
-  data: Array<Ibook>;
-}
+export type TListItems = {
+  data: Array<TItem>;
+  popup: boolean;
+  changePopup: () => void;
+};
 
 export type TPropsInput = {
   udpateSearch: (arg0: string) => void;
@@ -65,4 +69,9 @@ export type TInputsFile = {
   errors: FieldErrors<TItemForm>;
   changeName: (arg0: boolean) => void;
   fileName: boolean;
+};
+
+export type TApiPath = {
+  BASE_URL: string;
+  KEY: string;
 };
