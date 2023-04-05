@@ -7,13 +7,21 @@ export type TItem = {
   series: { items: Array<{ name: string }> };
   comics: { items: Array<{ name: string }> };
   thumbnail: { path: string; extension: string };
-  changePopup: () => void;
+  changePopup: (arg0: boolean) => void;
+  getId: (id: number) => void;
 };
 
 export type TListItems = {
   data: Array<TItem>;
+  changePopup: (arg0: boolean) => void;
+  getId: (id: number) => void;
+};
+
+export type TPopup = {
+  data: Array<TItem>;
+  id: number;
+  changePopup: (arg0: boolean) => void;
   popup: boolean;
-  changePopup: () => void;
 };
 
 export type TPropsInput = {
