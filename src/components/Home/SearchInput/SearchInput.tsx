@@ -1,30 +1,34 @@
 import React from 'react';
-import { useState, useEffect, useRef } from 'react';
-import styles from './SearchInput.module.scss';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { THomeSearch, TSearchForm } from '../../../types/types';
+import './SearchInput.scss';
 
-const SearchInput = () => {
-  const [search, setSearch] = useState<string>('');
-  const itemRef = useRef(search);
+const SearchInput = (props: THomeSearch) => {
+  const { register, handleSubmit } = useForm<TSearchForm>({
+    mode: 'onSubmit',
+    defaultValues: { inputSearch: localStorage.getItem('search') || '' },
+  });
 
-  useEffect(() => {
-    setSearch(localStorage.getItem('search') || '');
-    return () => {
-      localStorage.setItem('search', itemRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    itemRef.current = search;
-  }, [search]);
-
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchInput = e.target.value;
-    setSearch(searchInput);
+  const onSubmit: SubmitHandler<TSearchForm> = (data) => {
+    props.changeSearch(data.inputSearch);
+    props.changeActive(true);
   };
-
   return (
-    <div className={styles.searchInput}>
-      <input type="text" value={search} onChange={onSearch} />
+    <div className="searchInput">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          className="inputSearch"
+          placeholder="Start typing a name..."
+          type="text"
+          {...register('inputSearch')}
+        />
+        <input
+          className="btnSearch"
+          disabled={props.active ? true : false}
+          type="submit"
+          value="Search"
+        />
+      </form>
     </div>
   );
 };
