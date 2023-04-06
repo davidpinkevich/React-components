@@ -1,18 +1,19 @@
-import { Ibook } from '../../../types/types';
+import { TItem } from '../../../types/types';
 import styles from './Item.module.scss';
 
-const Item = (props: Ibook) => {
-  const { title, author, genre, year, image } = props;
-
+const Item = (props: TItem) => {
   return (
-    <li className={styles.item}>
+    <li
+      className={styles.item}
+      onClick={() => {
+        props.changePopup(true);
+        props.getId(props.id);
+      }}
+    >
+      <h2>{props.name}</h2>
       <div className={styles.bookImgWrapper}>
-        <img src={image} />
+        <img src={`${props.thumbnail.path}.${props.thumbnail.extension}`} />
       </div>
-      <h2>{title}</h2>
-      <p>Author: {author}</p>
-      <p>Genre: {genre}</p>
-      <p>Year: {year}</p>
     </li>
   );
 };
