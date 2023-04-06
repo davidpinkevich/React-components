@@ -39,6 +39,12 @@ export type TStateInput = {
   search: string;
 };
 
+export type THomeSearch = {
+  changeSearch: (arg0: string) => void;
+  changeActive: (arg0: boolean) => void;
+  active: boolean;
+};
+
 export type TStateForm = {
   value: string;
   class: boolean;
@@ -82,4 +88,9 @@ export type TInputsFile = {
 export type TApiPath = {
   BASE_URL: string;
   KEY: string;
+  START: string;
+};
+
+export type TSearchForm = {
+  inputSearch: string;
 };
