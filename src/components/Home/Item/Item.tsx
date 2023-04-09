@@ -9,6 +9,7 @@ const Item = (props: TItem) => {
         props.changePopup(true);
         props.getId(props.id);
       }}
+      data-testid="li-item"
     >
       <h2>{props.name}</h2>
       <div className={styles.bookImgWrapper}>
