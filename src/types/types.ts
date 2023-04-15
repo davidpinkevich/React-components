@@ -22,13 +22,6 @@ export type TPropsInput = {
   udpateSearch: (arg0: string) => void;
 };
 
-export type TPropsForm = {
-  changeSub: (arg0: TItemForm) => void;
-  changeName: (arg0: boolean) => void;
-  changePopup: (arg0: boolean) => void;
-  fileName: boolean;
-};
-
 export type TStateInput = {
   search: string;
 };
@@ -49,7 +42,7 @@ export type TItemForm = {
   radio: string;
   checkbox: Array<string>;
   fileList?: FileList;
-  file: File | string;
+  file: string;
 };
 
 export type TPageForms = {
@@ -73,8 +66,8 @@ export type TInputsCheckbox = {
 export type TInputsFile = {
   register: UseFormRegister<TItemForm>;
   errors: FieldErrors<TItemForm>;
-  changeName: (arg0: boolean) => void;
-  fileName: boolean;
+  // changeName: (arg0: boolean) => void;
+  // fileName: boolean;
 };
 
 export type TApiPath = {
@@ -94,8 +87,15 @@ export type TInitialStateHome = {
   search: string;
 };
 
+export type TInitialStateForm = {
+  items: Array<TItemForm>;
+  popup: boolean;
+  fileName: boolean;
+};
+
 export type TStore = {
   home: TInitialStateHome;
+  form: TInitialStateForm;
 };
 
 export type TApiData = {
