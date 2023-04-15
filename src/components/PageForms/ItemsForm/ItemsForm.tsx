@@ -31,7 +31,7 @@ const ItemsForm = (props: TPageForms) => {
               </div>
               {path && (
                 <div className={styles.imgWrapper}>
-                  <img src={URL.createObjectURL(item.file as Blob | MediaSource)} />
+                  <img src={item.file} />
                 </div>
               )}
             </div>
