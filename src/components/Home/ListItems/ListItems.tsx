@@ -5,8 +5,10 @@ import styles from './ListItems.module.scss';
 const ListItems = (props: TListItems) => {
   return (
     <ul className={styles.listItems}>
-      {props.data.map((elem) => {
-        return <Item {...elem} getId={props.getId} changePopup={props.changePopup} key={elem.id} />;
+      {props.results.map((elem) => {
+        // return <Item {...elem} getId={props.getId} changePopup={props.changePopup} key={elem.id} />;
+        // return <Item {...elem} getId={props.getId} key={elem.id} />;
+        return <Item {...elem} key={elem.id} />;
       })}
     </ul>
   );
