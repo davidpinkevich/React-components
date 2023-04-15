@@ -1,10 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
+import renderWithProviders from '../../tests/renderWithProviders';
 import Home from './Home';
 
 describe('Home', () => {
   it('Home component', () => {
-    render(<Home />);
+    renderWithProviders(<Home />);
 
     const menu = screen.getByRole('main');
     expect(menu).toBeInTheDocument();
