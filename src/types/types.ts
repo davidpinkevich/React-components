@@ -7,21 +7,15 @@ export type TItem = {
   series: { items: Array<{ name: string }> };
   comics: { items: Array<{ name: string }> };
   thumbnail: { path: string; extension: string };
-  changePopup: (arg0: boolean) => void;
-  getId: (id: number) => void;
 };
 
 export type TListItems = {
-  data: Array<TItem>;
-  changePopup: (arg0: boolean) => void;
-  getId: (id: number) => void;
+  results: Array<TItem>;
 };
 
 export type TPopup = {
   data: Array<TItem>;
   id: number;
-  changePopup: (arg0: boolean) => void;
-  popup: boolean;
 };
 
 export type TPropsInput = {
@@ -40,9 +34,7 @@ export type TStateInput = {
 };
 
 export type THomeSearch = {
-  changeSearch: (arg0: string) => void;
-  changeActive: (arg0: boolean) => void;
-  active: boolean;
+  isFetching: boolean;
 };
 
 export type TStateForm = {
@@ -86,6 +78,7 @@ export type TInputsFile = {
 };
 
 export type TApiPath = {
+  START_RTK: string;
   BASE_URL: string;
   KEY: string;
   START: string;
@@ -93,4 +86,20 @@ export type TApiPath = {
 
 export type TSearchForm = {
   inputSearch: string;
+};
+
+export type TInitialStateHome = {
+  popup: boolean;
+  id: number;
+  search: string;
+};
+
+export type TStore = {
+  home: TInitialStateHome;
+};
+
+export type TApiData = {
+  data: {
+    results: Array<TItem>;
+  };
 };
