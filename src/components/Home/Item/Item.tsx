@@ -1,13 +1,16 @@
+import { useDispatch } from 'react-redux';
 import { TItem } from '../../../types/types';
+import { activePopup, getId } from '../homeSlice';
 import styles from './Item.module.scss';
 
 const Item = (props: TItem) => {
+  const dispatch = useDispatch();
   return (
     <li
       className={styles.item}
       onClick={() => {
-        props.changePopup(true);
-        props.getId(props.id);
+        dispatch(activePopup(true));
+        dispatch(getId(props.id));
       }}
       data-testid="li-item"
     >
