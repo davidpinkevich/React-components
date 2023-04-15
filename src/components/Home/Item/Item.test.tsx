@@ -1,8 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import { describe, it, vi } from 'vitest';
+import { screen } from '@testing-library/react';
+import { describe, it } from 'vitest';
+import renderWithProviders from '../../../tests/renderWithProviders';
 import Item from './Item';
-
-const mockProps = vi.fn();
 
 const itemData = {
   id: 1009266,
@@ -17,7 +16,7 @@ const itemData = {
 };
 describe('Item', () => {
   it('Item component', () => {
-    render(<Item {...itemData} changePopup={mockProps} getId={mockProps} />);
+    renderWithProviders(<Item {...itemData} />);
 
     const title = screen.getByText('Darkstar');
     expect(title).toBeInTheDocument();
