@@ -5,6 +5,7 @@ import { TStore } from '../../types/types';
 import ListItems from './ListItems/ListItems';
 import SearchInput from './SearchInput/SearchInput';
 import Popup from './Popup/Popup';
+import Loading from './Loading/Loading';
 import styles from './Home.module.scss';
 
 const Home = () => {
@@ -20,13 +21,7 @@ const Home = () => {
     <main className={styles.home + ' __container'}>
       <SearchInput isFetching={isFetching} />
       <Popup data={items} id={id} />
-      {isFetching && (
-        <div className={styles.loading}>
-          Find heroes <span className={styles.oneElem}></span>
-          <span className={styles.twoElem}></span>
-          <span className={styles.threeElem}></span>
-        </div>
-      )}
+      {isFetching && <Loading />}
       {isError && <p>Request error</p>}
       {!isFetching && items.length === 0 && (
         <p>Characters were not found, start typing the first letters of the name</p>
