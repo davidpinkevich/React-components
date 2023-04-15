@@ -66,12 +66,7 @@ const Forms = () => {
       </div>
       <Radio register={register} errors={errors} />
       <Checkbox register={register} errors={errors} />
-      <FileInput
-        register={register}
-        errors={errors}
-        // changeName={props.changeName}
-        // fileName={props.fileName}
-      />
+      <FileInput register={register} errors={errors} />
       <input className="btnSubmit" type="submit" value="Create Card" />
     </form>
   );
