@@ -1,7 +1,11 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { describe, it, vi } from 'vitest';
+import { expect, describe, it, vi, Mock } from 'vitest';
+import { useSelector } from 'react-redux';
+import { useGetItemsQuery } from './apiSlice/apiSlice';
+import { render, screen } from '@testing-library/react';
 import Home from './Home';
+
+vi.mock('./apiSlice/apiSlice');
+vi.mock('react-redux');
 const mockObjectData = {
   data: {
     results: [
@@ -27,26 +31,41 @@ const mockObjectData = {
 };
 
 describe('Home component', () => {
-  it('rendering the page with the initial fetch request and checking the rendering of the modal window with additional information', async () => {
-    const mockJson = Promise.resolve(mockObjectData);
-    const mockFetch = Promise.resolve({ json: () => mockJson });
-    global.fetch = vi.fn().mockImplementation(() => mockFetch);
+  beforeEach(() => {
+    (useSelector as Mock).mockReturnValue({ data: {} });
+  });
+
+  afterEach(() => {
+    expect(useGetItemsQuery).toHaveBeenCalled();
+  });
+
+  it('display cards on the page on successful response', () => {
+    (useGetItemsQuery as Mock).mockReturnValue({ data: mockObjectData });
 
     render(<Home />);
-    expect(await screen.findByText('A.I.M.')).toBeInTheDocument();
-    expect(fetch).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('A.I.M');
+  });
 
-    const li = document.querySelectorAll('[data-testid=li-item]');
-    fireEvent.click(li[0]);
+  it('page display while waiting for a response', () => {
+    (useGetItemsQuery as Mock).mockReturnValue({ isFetching: true });
 
-    const modalItems = [
-      'Uncanny X-Men (1963 - 2011)',
-      'Uncanny X-Men Omnibus Vol. 1 (Hardcover)',
-      'Iceman (2017 - 2018)',
-      "Marvel's Voices: Pride (2021)",
-    ];
-    modalItems.map((elem) => {
-      expect(screen.getByText(elem)).toBeInTheDocument();
-    });
+    render(<Home />);
+    expect(screen.getByText('Find heroes')).toBeInTheDocument();
+  });
+
+  it('display cards on page on server side error', () => {
+    (useGetItemsQuery as Mock).mockReturnValue({ isError: true });
+
+    render(<Home />);
+    expect(screen.getByText('Request error')).toBeInTheDocument();
+  });
+
+  it('display cards on the page when the user searches incorrectly', () => {
+    (useGetItemsQuery as Mock).mockReturnValue({ isFetching: false });
+
+    render(<Home />);
+    expect(
+      screen.getByText('Characters were not found, start typing the first letters of the name')
+    ).toBeInTheDocument();
   });
 });
