@@ -1,18 +1,22 @@
-import { TInputsFile } from '../../../types/types';
+import { useSelector, useDispatch } from 'react-redux';
+import { changeName } from '../pageFormSlice';
+import { TInputsFile, TStore } from '../../../types/types';
 import styles from './Fileinput.module.scss';
 
 function FileInput(props: TInputsFile) {
-  const style = props.fileName ? ' chooseFile' : '';
+  const { fileName } = useSelector((state: TStore) => state.form);
+  const dispatch = useDispatch();
+  const style = fileName ? ' chooseFile' : '';
   return (
     <>
       <div className={styles.fileWrapper}>
         <span>Choose your photo:</span>
         <label className={'btnSubmit' + style}>
-          {!props.fileName ? 'ADD PHOTO' : 'FILE ADDED'}
+          {!fileName ? 'ADD PHOTO' : 'FILE ADDED'}
           <input
             type="file"
             {...props.register('fileList', {
-              onChange: () => props.changeName(true),
+              onChange: () => dispatch(changeName(true)),
               required: true,
               validate: (value) => {
                 const checkFilename = ['.png', '.jpg', '.jpeg'];
