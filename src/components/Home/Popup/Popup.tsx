@@ -1,16 +1,22 @@
 import { SyntheticEvent } from 'react';
-import { TPopup } from '../../../types/types';
+import { useSelector, useDispatch } from 'react-redux';
+import { activePopup } from '../homeSlice';
+import { TPopup, TStore } from '../../../types/types';
 import cross from '../../../assets/icons/cross.svg';
 import './Popup.scss';
 
 function Popup(props: TPopup) {
-  const { changePopup, data, id, popup } = props;
+  const { data, id } = props;
   const infoItem = data.find((elem) => elem.id === id);
+
+  const { popup } = useSelector((state: TStore) => state.home);
+
+  const dispatch = useDispatch();
 
   return (
     <div
       className={popup ? 'popupContainer containerActive' : 'popupContainer'}
-      onClick={() => changePopup(false)}
+      onClick={() => dispatch(activePopup(false))}
     >
       <div
         className={popup ? 'popupContent popupContentActive' : 'popupContent'}
@@ -18,7 +24,7 @@ function Popup(props: TPopup) {
           e.stopPropagation();
         }}
       >
-        <div className="crossWrapper skewCross" onClick={() => changePopup(false)}>
+        <div className="crossWrapper skewCross" onClick={() => dispatch(activePopup(false))}>
           {<img src={cross} />}
         </div>
         {infoItem && (
