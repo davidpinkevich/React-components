@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, it, vi } from 'vitest';
+import renderWithProviders from '../../../tests/renderWithProviders';
 import ListItems from './ListItems';
 
 const mockProps = vi.fn();
@@ -39,7 +40,7 @@ const itemData = [
 ];
 describe('Item', () => {
   it('Item component', () => {
-    render(<ListItems data={itemData} changePopup={mockProps} getId={mockProps} />);
+    renderWithProviders(<ListItems results={itemData} />);
 
     const names = ['Darkstar', 'Darkhawk'];
     names.map((elem) => {
