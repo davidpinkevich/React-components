@@ -1,17 +1,20 @@
-import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { THomeSearch, TSearchForm } from '../../../types/types';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchFind } from '../homeSlice';
+import { THomeSearch, TSearchForm, TStore } from '../../../types/types';
 import './SearchInput.scss';
 
-const SearchInput = (props: THomeSearch) => {
+const SearchInput = ({ isFetching }: THomeSearch) => {
+  const { search } = useSelector((state: TStore) => state.home);
+
+  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm<TSearchForm>({
     mode: 'onSubmit',
-    defaultValues: { inputSearch: localStorage.getItem('search') || '' },
+    defaultValues: { inputSearch: search },
   });
 
   const onSubmit: SubmitHandler<TSearchForm> = (data) => {
-    props.changeSearch(data.inputSearch);
-    props.changeActive(true);
+    dispatch(searchFind(data.inputSearch));
   };
   return (
     <div className="searchInput">
@@ -24,7 +27,7 @@ const SearchInput = (props: THomeSearch) => {
         />
         <input
           className="btnSearch"
-          disabled={props.active ? true : false}
+          disabled={isFetching ? true : false}
           type="submit"
           value="Search"
         />
