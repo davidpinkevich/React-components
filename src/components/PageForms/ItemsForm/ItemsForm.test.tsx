@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
+import renderWithProviders from '../../../tests/renderWithProviders';
 import ItemsForm from './ItemsForm';
 
 describe('ItemsForm component', () => {
@@ -14,7 +15,7 @@ describe('ItemsForm component', () => {
         checkbox: ['Swimming', 'Hunting'],
       },
     ];
-    render(<ItemsForm value={values} />);
+    renderWithProviders(<ItemsForm value={values} />);
 
     const elements = [
       'Ivan Petrov',

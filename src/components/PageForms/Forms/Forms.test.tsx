@@ -1,26 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import renderWithProviders from '../../../tests/renderWithProviders';
 import { describe, it } from 'vitest';
 import Forms from './Forms';
 
 describe('Forms component', () => {
   it('render forms', () => {
-    const changeName = () => {
-      console.log('mock');
-    };
-    const changeSub = () => {
-      console.log('mock');
-    };
-    const changePopup = () => {
-      console.log('mock');
-    };
-    render(
-      <Forms
-        changePopup={changePopup}
-        fileName={false}
-        changeSub={changeSub}
-        changeName={changeName}
-      />
-    );
+    renderWithProviders(<Forms />);
 
     const texts = [
       'Enter the first and last name with a capital letter:',
