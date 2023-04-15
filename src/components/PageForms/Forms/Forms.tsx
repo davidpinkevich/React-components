@@ -1,12 +1,15 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { TPropsForm, TItemForm } from '../../../types/types';
+import { useDispatch } from 'react-redux';
+import { TItemForm } from '../../../types/types';
 import Radio from '../Radio/Radio';
 import Checkbox from '../Checkbox/Checkbox';
 import Select from '../Select/Select';
 import FileInput from '../FileInput/FileInput';
+import { addItemForm, changePopup, changeName } from '../pageFormSlice';
 import styles from './Forms.module.scss';
 
-const Forms = (props: TPropsForm) => {
+const Forms = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -14,10 +17,16 @@ const Forms = (props: TPropsForm) => {
     formState: { errors },
   } = useForm<TItemForm>({ mode: 'onSubmit', reValidateMode: 'onSubmit' });
   const onSubmit: SubmitHandler<TItemForm> = (data) => {
-    props.changeSub({ ...data, file: data.fileList ? data.fileList[0] : '' });
-    props.changeName(false);
-    props.changePopup(true);
-    setTimeout(() => props.changePopup(false), 3000);
+    dispatch(
+      addItemForm({
+        ...data,
+        fileList: '',
+        file: data.fileList ? URL.createObjectURL(data.fileList[0]) : '',
+      })
+    );
+    dispatch(changeName(false));
+    dispatch(changePopup(true));
+    setTimeout(() => dispatch(changePopup(false)), 3000);
     reset();
   };
 
@@ -60,8 +69,8 @@ const Forms = (props: TPropsForm) => {
       <FileInput
         register={register}
         errors={errors}
-        changeName={props.changeName}
-        fileName={props.fileName}
+        // changeName={props.changeName}
+        // fileName={props.fileName}
       />
       <input className="btnSubmit" type="submit" value="Create Card" />
     </form>
