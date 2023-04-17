@@ -52,4 +52,8 @@
     pointer-events: none;
     color: #838b8a;
   }
+  &:focus {
+    background-color: #083b35;
+    transform: scale(1.1);
+  }
 }

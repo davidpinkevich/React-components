@@ -12,18 +12,21 @@ const Menu = () => {
       </div>
       <nav className={styles.navigation}>
         <NavLink
+          tabIndex={1}
           className={({ isActive }) => (isActive ? styles.activeLink : styles.notActiveLink)}
           to="."
         >
           Home
         </NavLink>
         <NavLink
+          tabIndex={2}
           className={({ isActive }) => (isActive ? styles.activeLink : styles.notActiveLink)}
           to="forms"
         >
           Forms
         </NavLink>
         <NavLink
+          tabIndex={3}
           className={({ isActive }) => (isActive ? styles.activeLink : styles.notActiveLink)}
           to="about"
         >

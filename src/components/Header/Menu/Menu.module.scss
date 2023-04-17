@@ -26,7 +26,9 @@
   color: #2fd1bb;
   transition: all 0.3s;
   text-shadow: 0px 3px 3px black;
-  // transform: scale(1.05);
+  &:focus {
+    color: #116a5e;
+  }
   &:hover {
     transform: scale(1.1);
   }
@@ -36,6 +38,9 @@
   color: white;
   transition: all 0.3s;
   text-shadow: 0px 3px 3px black;
+  &:focus {
+    color: #116a5e;
+  }
   &:hover {
     transform: scale(1.05);
   }
