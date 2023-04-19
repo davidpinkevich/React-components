@@ -8,12 +8,10 @@ const SearchInput = ({ isFetching }: THomeSearch) => {
   const { search } = useSelector((state: TStore) => state.home);
 
   const dispatch = useDispatch();
-  const { register, handleSubmit, setFocus } = useForm<TSearchForm>({
+  const { register, handleSubmit } = useForm<TSearchForm>({
     mode: 'onSubmit',
     defaultValues: { inputSearch: search },
   });
-
-  setFocus('inputSearch', { shouldSelect: true });
 
   const onSubmit: SubmitHandler<TSearchForm> = (data) => {
     dispatch(searchFind(data.inputSearch));
