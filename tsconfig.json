@@ -16,12 +16,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-
-  // "include": ["vite.config.json", "src"],
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }],
   "ts-node": {
     "esm": true,
     "transpileOnly": true
-  }
+  },
+  "include": ["vite.config.json", "src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

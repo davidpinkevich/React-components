@@ -8,13 +8,11 @@ import store from './store/store';
 
 export function render(url: string, context: RenderToPipeableStreamOptions) {
   return ReactDOMServer.renderToPipeableStream(
-    <React.StrictMode>
-      <Provider store={store}>
-        <StaticRouter location={url}>
-          <App />
-        </StaticRouter>
-      </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+      <StaticRouter location={url}>
+        <App />
+      </StaticRouter>
+    </Provider>,
     context
   );
 }
