@@ -1,0 +1,50 @@
+.radioWrapper {
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 3px 3px black;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  & p {
+    margin-bottom: 10px;
+    color: #2fd1bb;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+  }
+
+  & input {
+    transform: scale(1.3);
+    opacity: 0.9;
+    margin-left: 5px;
+  }
+
+  margin-bottom: 10px;
+  & label {
+    cursor: pointer;
+    text-shadow: 2px 2px 2px black;
+  }
+  & .checkboxInput {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+  }
+}
+
+.labelsWrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.inputError {
+  color: rgb(225, 9, 9);
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
