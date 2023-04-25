@@ -5,6 +5,19 @@ describe('loading the Home page of the application', () => {
     cy.get('li').should('have.length', 20);
   });
 
+  it('number of menu items', () => {
+    cy.visit('/');
+
+    cy.get('a').should('have.length', 3);
+  });
+
+  it('work links', () => {
+    cy.visit('/');
+
+    cy.get('a:last-child').click();
+    cy.get('main').should('have.text', 'About');
+  });
+
   it('display modal window', () => {
     cy.visit('/');
     cy.get('li:first-child').click();
