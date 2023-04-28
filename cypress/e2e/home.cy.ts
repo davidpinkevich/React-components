@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('loading the Home page of the application', () => {
   it('presence of cards on the page', () => {
     cy.visit('/');

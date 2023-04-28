@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 describe('loading the Forms page of the application', () => {
   it('form on the page', () => {
     cy.visit('/forms');
