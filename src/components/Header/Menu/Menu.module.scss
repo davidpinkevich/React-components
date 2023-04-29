@@ -1,0 +1,47 @@
+.navigation {
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  align-items: center;
+}
+
+.headerNavigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 3px 3px black;
+}
+
+.currentPage {
+  display: flex;
+  color: white;
+  font-size: 24px;
+  gap: 5px;
+}
+
+.activeLink {
+  color: #2fd1bb;
+  transition: all 0.3s;
+  text-shadow: 0px 3px 3px black;
+  &:focus {
+    color: #116a5e;
+  }
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.notActiveLink {
+  color: white;
+  transition: all 0.3s;
+  text-shadow: 0px 3px 3px black;
+  &:focus {
+    color: #116a5e;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+}

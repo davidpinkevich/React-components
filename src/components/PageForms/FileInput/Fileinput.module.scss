@@ -1,0 +1,26 @@
+.fileWrapper {
+  margin-bottom: 10px;
+  & span {
+    font-size: 24px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    margin-bottom: 10px;
+    color: #2fd1bb;
+    & .nameFile {
+      color: white;
+    }
+  }
+  & input {
+    display: none;
+  }
+  & label {
+    padding: 15px;
+  }
+}
+
+.inputError {
+  font-size: 22px;
+  text-shadow: 1px 1px 1px black;
+  margin-bottom: 10px;
+  color: rgb(225, 9, 9);
+}

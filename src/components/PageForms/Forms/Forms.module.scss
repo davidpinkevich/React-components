@@ -1,0 +1,80 @@
+.mainForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 600px;
+  color: white;
+  box-shadow: inset 0px 0px 3px 3px black;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  & h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+.inputError {
+  color: rgb(225, 9, 9);
+  font-size: 22px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.inputSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 3px 3px black;
+  margin-bottom: 10px;
+
+  & select {
+    position: relative;
+    background-color: #838b8a;
+    color: white;
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 5px;
+    text-shadow: 2px 2px 2px black;
+    transition: all 0.2s;
+    box-shadow: inset 0px 0px 3px 3px black;
+    cursor: pointer;
+
+    & option {
+      text-shadow: 2px 2px 2px black;
+      cursor: pointer;
+    }
+  }
+
+  & input {
+    box-shadow: inset 0px 0px 3px 3px black;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 24px;
+    padding: 5px;
+    color: white;
+    background-color: #838b8a;
+    text-shadow: 2px 2px 2px black;
+    transition: all 0.2s;
+    cursor: pointer;
+    &.inputDate {
+      color: white;
+    }
+    &:focus {
+      box-shadow: inset 0px 0px 3px 3px white;
+      background-color: #5b6160;
+      color: white;
+    }
+  }
+}
+
+.question {
+  font-size: 28px;
+  text-shadow: 2px 2px 2px black;
+  color: #2fd1bb;
+}
